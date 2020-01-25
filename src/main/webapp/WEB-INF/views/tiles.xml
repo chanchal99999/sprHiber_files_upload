@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+ "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+
+<tiles-definitions>
+	<definition name="base" template="/WEB-INF/views/default.jsp">
+		<put-attribute name="title" value=""/>
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp"/>
+		<put-attribute name="body" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp"/>
+	</definition>
+	<definition name="editUsers" extends="base">
+			<put-attribute name="title" value="Spring Hibernate Bootstrap Tiles"/>
+			<put-attribute name="body" value="/WEB-INF/views/editUsers.jsp"/>
+	</definition>
+	<!-- newFileForm -->
+	<definition name="newFileForm" extends="base">
+			<put-attribute name="title" value="Spring Hibernate File"/>
+			<put-attribute name="body" value="/WEB-INF/views/newFileForm.jsp"/>
+	</definition>
+	<!-- newCityPage -->
+	<definition name="newCityPage" extends="base">
+			<put-attribute name="title" value="Spring Hibernate CityPage"/>
+			<put-attribute name="body" value="/WEB-INF/views/newCityPage.jsp"/>
+	</definition> 
+	<!-- updateFileForm -->
+	<definition name="updateFileForm" extends="base">
+			<put-attribute name="title" value="Spring Hibernate UpdateFileForm"/>
+			<put-attribute name="body" value="/WEB-INF/views/updateFileForm.jsp"/>
+	</definition>
+	<!-- userFileUpdated -->
+	<definition name="userFileUpdated" extends="base">
+			<put-attribute name="title" value="Spring Hibernate UpatedFileForm"/>
+			<put-attribute name="body" value="/WEB-INF/views/userFileUpdated.jsp"/>
+	</definition>
+	<!-- stateForm -->
+	<definition name="stateForm" extends="base">
+			<put-attribute name="title" value="Spring Hibernate UpatedFileForm"/>
+			<put-attribute name="body" value="/WEB-INF/views/stateForm.jsp"/>
+	</definition>
+	<!-- cityState -->
+	<definition name="cityState" extends="base">
+			<put-attribute name="title" value="Spring Hibernate UpatedFileForm"/>
+			<put-attribute name="body" value="/WEB-INF/views/cityState.jsp"/>
+	</definition>
+	<!-- stateAndCity -->
+	<definition name="stateAndCity" extends="base">
+			<put-attribute name="title" value="Spring Hibernate UpatedFileForm"/>
+			<put-attribute name="body" value="/WEB-INF/views/stateAndCity.jsp"/>
+	</definition>
+	<!-- addressSaved -->
+	<definition name="addressForm" extends="base">
+			<put-attribute name="title" value="Spring Hibernate UpatedFileForm"/>
+			<put-attribute name="body" value="/WEB-INF/views/addressForm.jsp"/>
+	</definition>
+	
+	<!-- addressSaved -->
+	<definition name="addressSaved" extends="base">
+			<put-attribute name="title" value="Spring Hibernate UpatedFileForm"/>
+			<put-attribute name="body" value="/WEB-INF/views/addressSaved.jsp"/>
+	</definition>
+	
+	<!-- allAddress -->
+	<definition name="allAddress" extends="base">
+			<put-attribute name="title" value="Spring Hibernate All Address"/>
+			<put-attribute name="body" value="/WEB-INF/views/allAddress.jsp"/>
+	</definition>
+	
+	<!-- videoForm -->
+	<definition name="videoForm" extends="base">
+			<put-attribute name="title" value="Spring Hibernate Video Form"/>
+			<put-attribute name="body" value="/WEB-INF/views/newVideoForm.jsp"/>
+	</definition>
+	
+</tiles-definitions>
