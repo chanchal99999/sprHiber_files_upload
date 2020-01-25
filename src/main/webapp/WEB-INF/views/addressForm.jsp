@@ -4,17 +4,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>    
     
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
-</head>
-<body>
-<div class="container">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	
 	<h2>Address Form</h2>
-	<form:form action="saveAddress" method="post" modelAttribute="address" class="form-horizontal">
+	<form:form action="saveAddress" method="post" modelAttribute="address">
 		<div class="form-group">
 			<label >Name</label>
 			<form:input path="userName" class="form-control" />
@@ -22,11 +16,11 @@
 		</div>
 		<div class="form-group">
 			<label>Village Name</label>
-			<form:input path="villName"/>
+			<form:input path="villName" class="form-control" />
 		</div>
 		<div class="form-group">
 			<label>Select State</label>
-			<form:select path="state.stateId" name="stateId" id="stateId">
+			<form:select path="state.stateId" name="stateId" id="stateId" class="form-control" >
 			<option value="">--Select State--</option>
 				<c:forEach items="${states}" var="state">						
 					<form:option value="${state.stateId}" label="${state.stateName}"/>
@@ -35,14 +29,13 @@
 		</div>
 		<div class="form-group">
 		<label>City Name</label>
-			<form:select path="city.cityId" name="cityId" id="city">
+			<form:select path="city.cityId" name="cityId" id="city" class="form-control" >
 					<option value="">--Select City--</option>
 			</form:select>
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form:form>
-</div>
-</body>
+
 <script>
 		data = "";
           $(document).ready(function() {
@@ -52,16 +45,19 @@
             		type:'POST',
             		url:'loadStateCities',
             		data: {"stateId" : id},
-            		success : function(response){	
-						alert(response.data);
-						data=response.data;
-						var options='';
+            		success : function(response){
+            			var options='';
+            			if(response.data.length==1){
+    						alert(response.message+"!");
+            			}else{
+//						alert(response.data);
+//						data=response.data;
 						for(i=0; i<response.data.length; i++){	
 							options = options + '<option value='+response.data[i].cityId+'>' +response.data[i].cityName + '</option>';
-						}$('#city').html(options);
+						}         			
+            		}$('#city').html(options); 
             		}           		
             		});
             	});
             });
     </script>
-</html>

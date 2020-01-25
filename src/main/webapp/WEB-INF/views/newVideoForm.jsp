@@ -3,7 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>
-<!DOCTYPE html>
+<%-- <!DOCTYPE html>
 <html>
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -12,7 +12,7 @@
 			<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js"/>"></script>
 		</head>
 <body>
-	<div class="container">
+	<div class="container"> --%>
 		<div class="row">
 			<h1>New File Form</h1>
 			<form:form action="uploadVideo" method="post" enctype="multipart/form-data"
@@ -89,8 +89,8 @@
 			
 		</script>
 		</div>
-	</div>
-</body>
+<!-- 	</div>
+</body> -->
 <script type="text/javascript">
 
     function PreviewImage(input){
@@ -98,5 +98,3 @@
 	}
 
 </script>
-
-</html>

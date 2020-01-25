@@ -62,10 +62,13 @@ public class CityStateController {
 	@RequestMapping(value="/loadStateCities",method=RequestMethod.POST)
 	public @ResponseBody Map<String,Object> loadStateCities(@RequestParam(value="stateId") Long stateId){
 		Map<String,Object> map=new HashMap<String,Object>();
-		List<City> list=cityService.getCities(stateId);
+		List<City> list=new ArrayList<City>();
+		City ct=new City();
+		ct.setCityName("--Select City--");
+		list.add(ct);
+		list.addAll(cityService.getCities(stateId));
 		if(list!=null) {
-			System.out.println("List Is Not Null "+list);
-			   map.put("message","Data found");
+			   map.put("message","City is not available");
 			   map.put("data", list);
 		}
 		return map;

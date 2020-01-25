@@ -1,5 +1,6 @@
 package com.sprhiber.dao;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.sprhiber.model.State;
+import com.sprhiber.model.StateSorted;
 
 @Repository
 public class StateDaoImp implements StateDao {
@@ -24,6 +26,7 @@ public class StateDaoImp implements StateDao {
 		Query query=sessionFactory.getCurrentSession().createQuery("from State");
 		@SuppressWarnings("unchecked")
 		List<State> list=query.list();
+		Collections.sort(list,new StateSorted());
 		return list;
 	}
 	@Transactional

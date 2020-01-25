@@ -1,6 +1,7 @@
 package com.sprhiber.dao;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -10,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.sprhiber.model.City;
+import com.sprhiber.model.CitySorted;
 import com.sprhiber.model.State;
+import com.sprhiber.model.StateSorted;
 @Repository
 public class CityDaoImp implements CityDao {
 
@@ -29,6 +32,7 @@ public class CityDaoImp implements CityDao {
 		Query query=sessionFactory.getCurrentSession().createQuery("from City");
 		@SuppressWarnings("unchecked")
 		List<City> list=query.list();
+		Collections.sort(list,new CitySorted());
 		return list;
 	}
 
@@ -38,6 +42,7 @@ public class CityDaoImp implements CityDao {
 		Query query=sessionFactory.getCurrentSession().createQuery("select c.cityName from City c where c.stateId="+stateId+")");
 		List<String> list=new ArrayList<String>();
 		list.addAll(query.list());
+		Collections.sort(list);
 		return list;
 	}
 	@Transactional
